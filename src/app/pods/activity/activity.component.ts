@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-activity',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: './activity.component.html',
+  styleUrls: ['./activity.component.scss'],
 })
-export class AppComponent {
-  title = 'EZT';
-}
+export class ActivityComponent {}
