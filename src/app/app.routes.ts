@@ -5,33 +5,19 @@ import { ActivitySaveExitComponent } from './pods/activity/activity-save-exit/ac
 import { ActivitySpinnerComponent } from './pods/activity/activity-spinner/activity-spinner.component';
 import { ActivityComponent } from './pods/activity/activity.component';
 import { IntroComponent } from './pods/activity/intro/intro.component';
-// import { bootstrapGuard } from './pods/bootstrap/bootstrap.guard';
-// import { entryPointGuard } from './pods/entry-point/entry-point.guard';
+import { bootstrapResolver } from './pods/bootstrap/bootstrap.resolver';
 import { ErrorComponent } from './pods/error/error.component';
 import { QuestionGroupComponent } from './pods/question-group/question-group.component';
 import { QuestionComponent } from './pods/question-group/question/question.component';
 import { QuestionNavigationComponent } from './pods/question-navigation/question-navigation.component';
 
 export const routes: Routes = [
-  // {
-  //   path: 'bootstrap/:id',
-  //   canActivate: [bootstrapGuard],
-  // },
-  // {
-  //   path: 'lang/:locale/eaid/:eaid',
-  //   canActivate: [entryPointGuard],
-  // },
-  {
-    path: 'bootstrap/:id',
-    redirectTo: 'activity',
-  },
-  {
-    path: 'lang/:locale/eaid/:eaid',
-    redirectTo: 'activity',
-  },
   {
     path: 'activity',
     component: ActivityComponent,
+    resolve: {
+      bootstrap: bootstrapResolver,
+    },
     children: [
       {
         path: 'intro',
@@ -74,4 +60,3 @@ export const routes: Routes = [
     redirectTo: 'activity',
   },
 ];
- 
